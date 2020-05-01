@@ -5,17 +5,14 @@
 
 ### Features:
 - Test-drive a `POST` request to an endpoint for a new review that successfully adds that data to your database and returns success status in JSON response 
+- As it currently stands, the existing API routes in this repository use a local data store (`movies.JSON`) instead of a database. You will need to replace this functionality with connection to an actual PostgreSQL database for the `POST` route you are responsible for creating.
 
 ### Back End Service Setup:
-- Fork and clone this repo using git
-- To install the back end service and dependencies, run `npm install` in the root of the project directory
-- To start the server, run `npm run start`
-- The server will be available at `http://localhost:3001` 
+- Fork and clone this repository using git
+- To install dependencies, run `npm install` in the root of the project directory
+- To start the server, `cd` into the `server` folder and run `npm run start`
+- The server will be available at `http://localhost:{port}` (`port` is specified in the `app.js` file) 
 
-#### Available Service Endpoints
-- `GET movies` - returns a list of all movies
-- `GET movies/:id` - returns details of a specific movie
-- `GET movies?search=<query>` - returns a list of movies filtered on titles matching the given query
-- `GET reviews/:movieId` - returns all reviews for a given movie
-- `POST reviews` - creates a new review, returns success status in JSON response 
-- `POST register` - creates a new user, returns success status in JSON response
+#### Existing Service Endpoints
+- `GET /` - returns `{greeting: "Hello World"}`
+- `GET /movies` - returns a list of all movies

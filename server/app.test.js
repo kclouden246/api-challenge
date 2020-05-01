@@ -1,8 +1,6 @@
 const supertest = require('supertest');
-// const express = require('express');
 const app = require('./app')
 const fs = require("fs")
-const bodyParser = require("body-parser")
 
 const movies = JSON.parse(fs.readFileSync("movies.JSON"))
 
