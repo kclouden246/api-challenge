@@ -1,25 +1,25 @@
 const supertest = require('supertest');
-const express = require('express');
+// const express = require('express');
+const app = require('./app')
+const fs = require("fs")
+const bodyParser = require("body-parser")
 
-const app = express();
-
-// describe('GET /movies', function() {
-//   it('responds with json', function(done) {
-//     request(app)
-//       .get('http://localhost:3001/movies')
-//       .set('Content-Type', 'application/json')
-//       .expect('Content-Type', "/json/")
-//       .expect(200)
-//       .end(function(err, res) {
-//         if (err) return done(err);
-//         done();
-//       });
-//   });
-// });
-
+const movies = JSON.parse(fs.readFileSync("movies.JSON"))
 
 test("GET /", done => {
   supertest(app)
-  .get('/')
-  .expect(200, done);
+    .get("/")
+    .expect(200, JSON.stringify({greeting: "Hello World"}))
+    .end(done)
 })
+
+test("GET /movies", done => {
+  supertest(app)
+    .get("/movies")
+    .set('Content-Type', 'application/json')
+    .expect('Content-Type', 'application/json; charset=utf-8')
+    .expect(200, movies)
+    .end(done)
+})
+
+
