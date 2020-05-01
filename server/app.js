@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.get('/movies', (req, res) => {
-    res.json(movies)
+  res.json(movies)
 }); 
 
 app.post('/reviews',function(req,res){
