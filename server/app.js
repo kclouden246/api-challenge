@@ -1,4 +1,4 @@
-const fs = require("fs")
+//const fs = require("fs")
 const bodyParser = require("body-parser")
 
 const express = require('express')
@@ -22,10 +22,7 @@ app.get("/", (req, res) => {
 
 app.get('/movies', movies.getMovies)
 
-app.post('/reviews',function(req,res){
- //YOUR CODE GOES HERE 
- 
-});
+app.post('/reviews', movies.createReview)
 
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
